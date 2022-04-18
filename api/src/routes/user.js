@@ -5,8 +5,8 @@ const { User, Order } = require('../db');
 server.post('/', (req, res, next) => {
     User.create({
         email: req.body.email,
-        name: req.body.name,
-        surname: req.body.surname,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         password: req.body.password
     })
     .then( user => {

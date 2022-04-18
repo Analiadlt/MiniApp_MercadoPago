@@ -15,7 +15,7 @@ mercadopago.configure({
 //Ruta que genera la URL de MercadoPago
 server.get("/", async (req, res, next) => {
 
-  const {id_orden}= req.query;
+  const {id_order}= req.query;
 
   try {
     const order = await Order.findOne({
@@ -96,11 +96,11 @@ server.get("/pagos", async (req, res)=>{
 
       if (order.payment_status === "approved") {
         const user = await User.findByPk(order.userId)
-        //console.log("USER", user)
+        console.log("USER", user)
         const products = await Product.findAll({ where: { orderId: order.id } })
-        //console.log("CARDS", cards)
+        console.log("CARDS", cards)
         for (const product of products) {
-          //console.log("BUCLE", card)
+          console.log("BUCLE", card)
           user.addProducts(product)
         }
         return res.redirect(`${REACT_APP_CLIENT}/Detail`)

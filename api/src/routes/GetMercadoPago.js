@@ -64,7 +64,7 @@ router.get("/", async (req, res, next) => {
 
 
     const response = await mercadopago.preferences.create(preference)
-    //console.log("REPONDIO", response)
+    //console.log("RESPONDIO", response)
     res.json({ id: response.body.id })
 
   } catch (error) {
